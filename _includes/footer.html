@@ -1,30 +1,77 @@
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% if site.twitter_username %}
+                    <li>
+                        <a href="https://twitter.com/{{ site.twitter_username }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if site.facebook_username %}
+                    <li>
+                        <a href="https://www.facebook.com/{{ site.facebook_username }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if site.github_username %}
+                    <li>
+                        <a href="https://github.com/{{ site.github_username }}/{{ site.project_repository}}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
+					{% if site.github_username == "projectpages" %}
+                    <li>
+                        <a href="https://github.com/projectpages/project-pages/issues">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    <li>
+                        <a href="https://github.com/projectpages/project-pages/wiki/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/projectpages/project-pages/fork">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-code-fork fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}				
+                </ul>
+                <p class="copyright text-muted"> Copyright © <a href="http://ahmetcecen.github.io/" target="_blank">Ahmet Cecen</a>,  <a href="http://mined.gatech.edu/" target="_blank">MINED@GaTech</a> and <a href="https://github.com/projectpages" target="_blank">Project Pages</a> 2016. </p>
+            </div>
+        </div>
+    </div>
+</footer>
 
-{% if paginator %}
-<!-- Pagination links -->
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a href="/page{{paginator.next_page}}" class="older"><span class="mega-octicon octicon-playback-rewind" style="min-width: 32px;"></span></a>
-  {% else %}
-    <span class="next"><span class="mega-octicon octicon-playback-rewind" style="min-width: 32px;"></span></span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a href="/" class="newer"><span class="mega-octicon octicon-playback-fast-forward" style="min-width: 32px;"></span></a>
-    {% else %}
-      <a href="/page{{paginator.previous_page}}" class="newer"><span class="mega-octicon octicon-playback-fast-forward" style="min-width: 32px;"></span></a>
-    {% endif %}
-  {% else %}
-    <span class="previous"><span class="mega-octicon octicon-playback-fast-forward" style="min-width: 32px;"></span></span>
-  {% endif %}
-</div>
-{%  endif %}
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', '{{site.google_analytics}}']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
